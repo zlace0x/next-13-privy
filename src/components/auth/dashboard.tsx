@@ -2,7 +2,12 @@
 
 import { useState } from "react";
 
-import { useIdentityToken, usePrivy, useWallets } from "@privy-io/react-auth";
+import {
+  useIdentityToken,
+  usePrivy,
+  User,
+  useWallets,
+} from "@privy-io/react-auth";
 import axios from "axios";
 
 export function Dashboard() {
@@ -16,7 +21,7 @@ export function Dashboard() {
     if (!identityToken) return;
     try {
       setLoading(true);
-      const response = await axios.post<{ user: any }>("/api/app/privy/link", {
+      const response = await axios.post<{ user: User }>("/api/app/privy/link", {
         id_token: identityToken,
       });
       console.log(response.data);

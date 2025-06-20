@@ -59,6 +59,7 @@ function PrivyConfigurationError() {
 
 export function PrivyAuthProvider({ children }: PrivyAuthProviderProps) {
   const appId = process.env.NEXT_PUBLIC_PRIVY_APP_ID;
+  const clientId = process.env.NEXT_PUBLIC_PRIVY_CLIENT_ID;
 
   // Check if App ID is missing or invalid
   if (!appId || appId === "your_privy_app_id_here" || appId.length < 10) {
@@ -69,6 +70,7 @@ export function PrivyAuthProvider({ children }: PrivyAuthProviderProps) {
     return (
       <PrivyProvider
         appId={appId}
+        clientId={clientId}
         config={{
           // Appearance customization
           appearance: {
