@@ -2,13 +2,7 @@
 
 import { useState } from "react";
 
-import {
-  PrivyProvider,
-  useIdentityToken,
-  useLogin,
-  usePrivy,
-  useWallets,
-} from "@privy-io/react-auth";
+import { useIdentityToken, usePrivy, useWallets } from "@privy-io/react-auth";
 import axios from "axios";
 
 export function Dashboard() {
@@ -22,14 +16,11 @@ export function Dashboard() {
     if (!identityToken) return;
     try {
       setLoading(true);
-      const response = await axios.post<{ linked: boolean }>(
-        "/api/app/privy/link",
-        {
-          id_token: identityToken,
-        }
-      );
-      console.log(response);
-      setLinked(response.data.linked);
+      const response = await axios.post<{ user: any }>("/api/app/privy/link", {
+        id_token: identityToken,
+      });
+      console.log(response.data);
+      setLinked(!!response.data.user);
     } catch (error) {
       console.error("Linking failed", error);
     } finally {
@@ -285,7 +276,7 @@ export function Dashboard() {
                 disabled={loading}
               >
                 <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                  <div>Link</div>
+                  <div>{linked ? "Linked" : "Link"}</div>
                 </div>
                 <h3 className="font-medium">Link Accounts</h3>
                 <p className="text-sm text-muted-foreground">
