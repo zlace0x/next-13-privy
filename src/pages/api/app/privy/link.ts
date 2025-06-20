@@ -1,4 +1,5 @@
-// pages/api/example.ts
+"use server";
+
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PrivyClient } from "@privy-io/server-auth";
 
