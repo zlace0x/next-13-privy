@@ -254,88 +254,17 @@ export function Dashboard() {
           <div className="bg-card border border-border rounded-xl p-6">
             <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <button className="p-4 border border-border rounded-lg hover:bg-accent transition-colors text-left">
-                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                  <svg
-                    className="w-4 h-4 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 4v16m8-8H4"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-medium">View Transactions</h3>
-                <p className="text-sm text-muted-foreground">
-                  Check your transaction history
-                </p>
-              </button>
               <button
                 className="p-4 border border-border rounded-lg hover:bg-accent transition-colors text-left"
                 onClick={linkAccounts}
                 disabled={loading}
               >
-                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
+                <div className="bg-primary/10 rounded-lg flex items-center justify-center mb-2">
                   <div>{linked ? "Linked" : "Link"}</div>
                 </div>
                 <h3 className="font-medium">Link Accounts</h3>
                 <p className="text-sm text-muted-foreground">
                   Link your accounts to your HyperApp
-                </p>
-              </button>
-
-              <button className="p-4 border border-border rounded-lg hover:bg-accent transition-colors text-left">
-                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                  <svg
-                    className="w-4 h-4 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-medium">Account Settings</h3>
-                <p className="text-sm text-muted-foreground">
-                  Manage your account preferences
-                </p>
-              </button>
-
-              <button className="p-4 border border-border rounded-lg hover:bg-accent transition-colors text-left">
-                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                  <svg
-                    className="w-4 h-4 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-medium">Help & Support</h3>
-                <p className="text-sm text-muted-foreground">
-                  Get help with your account
                 </p>
               </button>
             </div>
