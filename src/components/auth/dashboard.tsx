@@ -16,6 +16,7 @@ export function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [linked, setLinked] = useState(false);
   const [userInfo, setUserInfo] = useState<User | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   // Use the token in your API requests
   const linkAccounts = async () => {
@@ -29,7 +30,8 @@ export function Dashboard() {
       setLinked(!!response.data.user);
       setUserInfo(response.data.user);
     } catch (error) {
-      console.error("Linking failed", error);
+      console.error("Get user info failed", error);
+      setError("Get user info failed:" + error);
     } finally {
       setLoading(false);
     }
@@ -269,6 +271,12 @@ export function Dashboard() {
                   Test get user info with ID token
                 </p>
               </button>
+              {error && (
+                <div className="bg-card border border-border rounded-xl p-6">
+                  <h2 className="text-xl font-semibold mb-4">Error</h2>
+                  <p className="text-sm text-muted-foreground">{error}</p>
+                </div>
+              )}
               {userInfo && (
                 <div className="bg-card border border-border rounded-xl p-6">
                   <h2 className="text-xl font-semibold mb-4">User Info</h2>
