@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { PrivyAuthProvider } from "@/components/providers/privy-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "HyperApp - Next.js 15 + Tailwind CSS v4",
+  title: "HyperApp - Next.js 13 + Tailwind CSS v4",
   description:
-    "A modern web application built with Next.js 15, React 19, and Tailwind CSS v4. Showcasing the latest features and best practices.",
+    "A modern web application built with Next.js 13, React 19, and Tailwind CSS v4. Showcasing the latest features and best practices.",
   keywords: [
     "Next.js",
     "React",
@@ -36,15 +31,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://hyperapp-web.vercel.app",
     siteName: "HyperApp",
-    title: "HyperApp - Next.js 15 + Tailwind CSS v4",
+    title: "HyperApp - Next.js 13 + Tailwind CSS v4",
     description:
-      "A modern web application built with Next.js 15, React 19, and Tailwind CSS v4",
+      "A modern web application built with Next.js 13, React 19, and Tailwind CSS v4",
   },
   twitter: {
     card: "summary_large_image",
-    title: "HyperApp - Next.js 15 + Tailwind CSS v4",
+    title: "HyperApp - Next.js 13 + Tailwind CSS v4",
     description:
-      "A modern web application built with Next.js 15, React 19, and Tailwind CSS v4",
+      "A modern web application built with Next.js 13, React 19, and Tailwind CSS v4",
   },
 };
 
@@ -55,9 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
-      >
+      <body className={`${inter.variable} antialiased font-sans`}>
         <PrivyAuthProvider>{children}</PrivyAuthProvider>
       </body>
     </html>
