@@ -15,6 +15,7 @@ export function Dashboard() {
   const { identityToken } = useIdentityToken();
   const [loading, setLoading] = useState(false);
   const [linked, setLinked] = useState(false);
+  const [userInfo, setUserInfo] = useState<User | null>(null);
 
   // Use the token in your API requests
   const linkAccounts = async () => {
@@ -26,6 +27,7 @@ export function Dashboard() {
       });
       console.log(response.data);
       setLinked(!!response.data.user);
+      setUserInfo(response.data.user);
     } catch (error) {
       console.error("Linking failed", error);
     } finally {
@@ -253,7 +255,7 @@ export function Dashboard() {
           {/* Quick Actions */}
           <div className="bg-card border border-border rounded-xl p-6">
             <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="flex flex-col gap-4">
               <button
                 className="p-4 border border-border rounded-lg hover:bg-accent transition-colors text-left"
                 onClick={linkAccounts}
@@ -264,9 +266,17 @@ export function Dashboard() {
                 </div>
                 <h3 className="font-medium">Link Accounts</h3>
                 <p className="text-sm text-muted-foreground">
-                  Link your accounts to your HyperApp
+                  Test get user info with ID token
                 </p>
               </button>
+              {userInfo && (
+                <div className="bg-card border border-border rounded-xl p-6">
+                  <h2 className="text-xl font-semibold mb-4">User Info</h2>
+                  <pre className="text-sm font-mono bg-muted rounded px-2 py-1 mt-1 break-all">
+                    {JSON.stringify(userInfo, null, 2)}
+                  </pre>
+                </div>
+              )}
             </div>
           </div>
         </div>
