@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { PrivyAuthProvider } from "@/components/providers/privy-provider";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "HyperApp - Next.js 13 + Tailwind CSS v4",
@@ -50,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased font-sans`}>
+      <body className={`antialiased font-sans`}>
         <PrivyAuthProvider>{children}</PrivyAuthProvider>
       </body>
     </html>
